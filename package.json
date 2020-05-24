@@ -1,12 +1,13 @@
 {
-  "name": "wpp-bot",
+  "name": "classroom-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Um bot para resolver exercicios no classroom",
   "main": "./src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Raisess",
   "license": "MIT",
   "dependencies": {
     "puppeteer": "^3.1.0",
