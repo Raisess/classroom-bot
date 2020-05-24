@@ -19,6 +19,7 @@ const goToScholar = async (page, args, callback) => {
   console.log('');
   // escolher o item para pesquisar
   const index = parseInt(question('escolha o indice para pesquisar: '));
+  console.log('');
 
   // fazer a pesquisa
   await page.goto(`https://www.google.com/search?q=${ arr[index] }&aqs=chrome..69i57j69i60.550j0j1&sourceid=chrome&ie=UTF-8`);
@@ -33,7 +34,7 @@ const goToScholar = async (page, args, callback) => {
 
   await navigationPromise;
 
-  console.log(text);
+  // console.log(text);
   console.log('');
 
   if (callback) {

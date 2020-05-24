@@ -45,6 +45,7 @@ const {
   getExerciseText
 } = require('./modules/getExerciseText');
 const goToScholar = require('./modules/goToScholar');
+const postResolution = require('./modules/postResolution');
 
 // modulos de resolução de exercicios
 // const googleSearchFetch = require('./services/googleSearchFetch');
@@ -54,7 +55,7 @@ const goToScholar = require('./modules/goToScholar');
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
-    args: ['--window-size=1000,700']
+    args: ['--window-size=250,720']
   });
 
   // ir para página do classroom
@@ -66,10 +67,11 @@ const goToScholar = require('./modules/goToScholar');
   // selecionar exercicio
   await selectExercise(page, room_url);
   await getExerciseText(page, async searchText => {
-    await goToScholar(page, searchText);
+    await goToScholar(page, searchText, async text => {
+      await postResolution(browser, page, text, async () => await browser.close());
+    });
   });
 
-  // await browser.close();
-
-  console.log('terminei!');
+  console.log('');
+  console.log('terminei, tchauzinho!');
 })();
