@@ -11,7 +11,7 @@ const {
 
 console.log('comecei!');
 
-let yourEmail, yourPassword, yourRoom;
+let yourEmail, yourPassword;
 
 // importando o arquivo de credenciais
 if (require('./credencials.json')) {
