@@ -1,7 +1,3 @@
-const {
-  question
-} = require('readline-sync');
-
 // trocar os espaços por cocatenação em query string
 const textReplace = text => text.split(' ').join('+');
 
