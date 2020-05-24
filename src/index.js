@@ -5,32 +5,33 @@ const { classroom_url } = require('./config.json');
 
 console.log('comecei!');
 
-let yourEmail, yourPassword;
+let yourEmail, yourPassword, yourRoom;
 
 // importando o arquivo de credenciais
 if(require('./credencials.json')) {
-  const { email, password } = require('./credencials.json');
+  const { email, password, room_url } = require('./credencials.json');
   
   yourEmail = email;
   yourPassword = password;
+  yourRoom = room_url;
 } else {
-  const { email, password } = require('./credencials.template.json');
+  const { email, password, room_url } = require('./credencials.template.json');
 
   yourEmail = email;
   yourPassword = password;
+  yourRoom = room_url;
 }
 
 // modulos do bot
 const login = require('./modules/login');
+const selectExercise = require('./modules/selectExercise');
 
 (async () => {
   // criar a instancia do navegador
   const browser = await puppeteer.launch({
     headless: false,
-    defaultViewport:{
-      width: 800,
-      height: 600
-    }
+    defaultViewport: null,
+    args: ['--window-size=1000,700']
   });
 
   // ir para página do classroom
@@ -39,6 +40,7 @@ const login = require('./modules/login');
   // AÇÕES DO BOT
   // login
   await login(page, classroom_url, yourEmail, yourPassword);
+  await selectExercise(page, yourRoom);
 
   // await browser.close();
 
