@@ -1,4 +1,6 @@
-const { question } = require('readline-sync');
+const {
+  question
+} = require('readline-sync');
 
 const selectExercise = async (page, room_url) => {
   const navigationPromise = page.waitForNavigation();
