@@ -40,6 +40,7 @@ if (require('./credencials.json')) {
 // modulos do bot
 const login = require('./modules/login');
 const selectExercise = require('./modules/selectExercise');
+const getExerciseText = require('./modules/getExerciseText');
 
 (async () => {
   // criar a instancia do navegador
@@ -55,7 +56,9 @@ const selectExercise = require('./modules/selectExercise');
   // AÇÕES DO BOT
   // login
   await login(page, classroom_url, yourEmail, yourPassword);
+  // selecionar exercicio
   await selectExercise(page, room_url);
+  await getExerciseText(page);
 
   // await browser.close();
 
