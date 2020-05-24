@@ -6,7 +6,8 @@ const {
 // importando o arquivo de configuração
 const {
   classroom_url,
-  room_url
+  room_url,
+  exercise_url
 } = require('./config.json');
 
 console.log('comecei!');
@@ -41,7 +42,7 @@ if (require('./credencials.json')) {
 const login = require('./modules/login');
 const selectExercise = require('./modules/selectExercise');
 const getExerciseText = require('./modules/getExerciseText');
-const goToBrainly = require('./modules/goToBrainly');
+const goToScholar = require('./modules/goToScholar');
 
 // modulos de resolução de exercicios
 // const googleSearchFetch = require('./services/googleSearchFetch');
@@ -63,7 +64,7 @@ const goToBrainly = require('./modules/goToBrainly');
   // selecionar exercicio
   await selectExercise(page, room_url);
   await getExerciseText(page, async searchText => {
-    await goToBrainly(page, searchText);
+    await goToScholar(page, searchText);
   });
 
   // await browser.close();
