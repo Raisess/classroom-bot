@@ -32,11 +32,10 @@ if(require('./credencials.json')) {
 
   // ir para página do classroom
   const page = await browser.newPage();
+  const navigationPromise = page.waitForNavigation();
   await page.goto(classroom_url);
 
   // AÇÕES DO BOT
-
-  // LOGIN
   await navigationPromise;
 
   await page.waitForSelector('input[type="email"]');
@@ -62,9 +61,6 @@ if(require('./credencials.json')) {
 
   await page.waitForSelector('#passwordNext');
   await page.click('#passwordNext');
-
-  // ENTRAR NA SALA E ESCOLHER A MATERIA
-  
 
   // await browser.close();
 
