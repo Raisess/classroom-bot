@@ -2,6 +2,9 @@ const login = async (page, classroom_url, yourEmail, yourPassword) => {
   const navigationPromise = page.waitForNavigation();
   await page.goto(classroom_url);
 
+  console.log('');
+  console.log('fazendo login...');
+
   await navigationPromise;
 
   // clicar no campo de email
