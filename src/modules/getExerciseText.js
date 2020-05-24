@@ -5,6 +5,9 @@ const {
   exercise_url
 } = require('../config.json');
 
+// trocar os espaços por cocatenação em query string
+const textReplace = text => text.split(' ').join('+');
+
 const getExerciseText = async (page, callback) => {
   const navigationPromise = page.waitForNavigation();
 
@@ -33,10 +36,13 @@ const getExerciseText = async (page, callback) => {
 
   // console.log(element);
   // console.log(text);
+  const searchText = textReplace(text);
+
+  // console.log(searchText);
 
   if (callback) {
     // retorna um callback com texto para tratamento
-    return callback(text);
+    return callback(searchText);
   }
 }
 
