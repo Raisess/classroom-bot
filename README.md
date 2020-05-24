@@ -1,4 +1,4 @@
-# CLASSROOM BOT
+# CLASSROOM-BOT
 
 Um bot feito para resolver exercicios e comentar a resolução no classroom de forma automática.
 
