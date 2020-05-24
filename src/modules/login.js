@@ -1,8 +1,10 @@
-const login = async (page, yourEmail, yourPassword) => {
+const login = async (page, classroom_url, yourEmail, yourPassword) => {
   const navigationPromise = page.waitForNavigation();
+  await page.goto(classroom_url);
 
   await navigationPromise;
 
+  // clicar no campo de email
   await page.waitForSelector('input[type="email"]');
   await page.click('input[type="email"]');
 
@@ -16,6 +18,7 @@ const login = async (page, yourEmail, yourPassword) => {
 
   await navigationPromise;
 
+  // clicar no campo de senha
   await page.waitForSelector('input[name="password"]');
   await page.click('input[name="password"]');
 

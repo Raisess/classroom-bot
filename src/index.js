@@ -20,6 +20,9 @@ if(require('./credencials.json')) {
   yourPassword = password;
 }
 
+// modulos do bot
+const login = require('./modules/login');
+
 (async () => {
   // criar a instancia do navegador
   const browser = await puppeteer.launch({
@@ -32,35 +35,10 @@ if(require('./credencials.json')) {
 
   // ir para página do classroom
   const page = await browser.newPage();
-  const navigationPromise = page.waitForNavigation();
-  await page.goto(classroom_url);
-
+  
   // AÇÕES DO BOT
-  await navigationPromise;
-
-  await page.waitForSelector('input[type="email"]');
-  await page.click('input[type="email"]');
-
-  await navigationPromise;
-
-  // o bot escreve o email no campo e dps aperta no botão "Próxima"
-  await page.type('input[type="email"]', yourEmail);
-
-  await page.waitForSelector('#identifierNext');
-  await page.click('#identifierNext');
-
-  await navigationPromise;
-
-  await page.waitForSelector('input[name="password"]');
-  await page.click('input[name="password"]');
-
-  await navigationPromise;
-
-  // escrever senha
-  await page.type('input[name="password"]', yourPassword);
-
-  await page.waitForSelector('#passwordNext');
-  await page.click('#passwordNext');
+  // login
+  await login(page, classroom_url, yourEmail, yourPassword);
 
   // await browser.close();
 
