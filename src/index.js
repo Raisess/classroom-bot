@@ -1,8 +1,12 @@
 const puppeteer = require('puppeteer');
+const {
+  question
+} = require('readline-sync');
 
 // importando o arquivo de configuração
 const {
-  classroom_url
+  classroom_url,
+  room_url
 } = require('./config.json');
 
 console.log('comecei!');
@@ -13,23 +17,24 @@ let yourEmail, yourPassword, yourRoom;
 if (require('./credencials.json')) {
   const {
     email,
-    password,
-    room_url
+    password
   } = require('./credencials.json');
 
   yourEmail = email;
   yourPassword = password;
-  yourRoom = room_url;
-} else {
+} else if (require('./credencials.template.json')) {
   const {
     email,
-    password,
-    room_url
+    password
   } = require('./credencials.template.json');
 
   yourEmail = email;
   yourPassword = password;
-  yourRoom = room_url;
+} else {
+  yourEmail = question('informe o seu email: ');
+  yourPassword = question('informe sua senha: ', {
+    hideEchoBack: true
+  });
 }
 
 // modulos do bot
@@ -50,7 +55,7 @@ const selectExercise = require('./modules/selectExercise');
   // AÇÕES DO BOT
   // login
   await login(page, classroom_url, yourEmail, yourPassword);
-  await selectExercise(page, yourRoom);
+  await selectExercise(page, room_url);
 
   // await browser.close();
 
