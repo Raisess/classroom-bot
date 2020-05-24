@@ -13,7 +13,7 @@ const goToScholar = async (page, args, callback) => {
   console.log('SELECAO PARA PESQUISA: ');
   // console.log(arr);
   for (let i = 0; i < (arr.length - 1); i++) {
-    console.log(`indice: ${ i }`, '|', `texto: ${ arr[i] }`);
+    console.log(`[${ i }]: ${ arr[i] }`);
   }
 
   console.log('');
@@ -26,21 +26,35 @@ const goToScholar = async (page, args, callback) => {
 
   await navigationPromise;
 
+  let text;
+
   // selecionar texto da resposta
-  await page.waitForSelector('span[class="e24Kjd"]');
+  try {
+    await page.waitForSelector('span[class="e24Kjd"]');
 
-  const element = await page.$('span[class="e24Kjd"]');
-  const text = await page.evaluate(elem => elem.innerText, element);
+    const element = await page.$('span[class="e24Kjd"]');
+    text = await page.evaluate(elem => elem.innerText, element);
 
-  await navigationPromise;
+    await navigationPromise;
+  } catch (e) {
+    await page.waitForSelector('span[class="st"]');
+
+    const element = await page.$('span[class="st"]');
+    text = await page.evaluate(elem => elem.innerText, element);
+
+    await navigationPromise;
+
+    if (callback) {
+      return callback(text, true);
+    }
+  }
 
   // console.log(text);
-  console.log('');
   console.log('fazendo pesquisa...');
   console.log('');
 
   if (callback) {
-    return callback(text);
+    return callback(text, false);
   }
 
 }

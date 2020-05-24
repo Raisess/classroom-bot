@@ -26,6 +26,7 @@ const login = async (page, classroom_url, yourEmail, yourPassword) => {
   await page.click('input[name="password"]');
 
   await navigationPromise;
+  await navigationPromise;
 
   // escrever senha
   await page.type('input[name="password"]', yourPassword);

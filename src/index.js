@@ -75,11 +75,12 @@ const postResolution = require('./modules/postResolution');
   // selecionar exercicio
   await selectExercise(page, room_url);
   await getExerciseText(page, yourExercise, async searchText => {
-    await goToScholar(page, searchText, async text => {
-      await postResolution(browser, page, yourExercise, text, async () => await browser.close());
+    await goToScholar(page, searchText, async (text, bool) => {
+      await postResolution(browser, page, yourExercise, text, bool, async () => await browser.close());
     });
   });
 
   console.log('');
   console.log('terminei, tchauzinho!');
+  console.log('by Danilo XD');
 })();
