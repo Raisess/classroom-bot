@@ -3,6 +3,8 @@ const puppeteer = require('puppeteer');
 // importando o arquivo de configuração
 const { classroom_url } = require('./config.json');
 
+console.log('comecei!');
+
 let yourEmail, yourPassword;
 
 // importando o arquivo de credenciais
@@ -19,25 +21,50 @@ if(require('./credencials.json')) {
 }
 
 (async () => {
-  // create a browser instace
+  // criar a instancia do navegador
   const browser = await puppeteer.launch({
     headless: false,
-    defaultViewport: null,
-    args: ["--window-size=1200,700"],
+    defaultViewport:{
+      width: 800,
+      height: 600
+    }
   });
 
-  console.log('comecei!');
-
+  // ir para página do classroom
   const page = await browser.newPage();
   await page.goto(classroom_url);
 
-  await page.click('input[clss="whsOnd zHQkBf"]');
-  await page.keyboard.type(yourEmail);
+  // AÇÕES DO BOT
 
-  // await page.waitForNavigation();
+  // LOGIN
+  await navigationPromise;
 
-  // await page.click('div[class="_2S1VP copyable-text selectable-text"]');
-  // await page.keyboard.type('oii');
+  await page.waitForSelector('input[type="email"]');
+  await page.click('input[type="email"]');
+
+  await navigationPromise;
+
+  // o bot escreve o email no campo e dps aperta no botão "Próxima"
+  await page.type('input[type="email"]', yourEmail);
+
+  await page.waitForSelector('#identifierNext');
+  await page.click('#identifierNext');
+
+  await navigationPromise;
+
+  await page.waitForSelector('input[name="password"]');
+  await page.click('input[name="password"]');
+
+  await navigationPromise;
+
+  // escrever senha
+  await page.type('input[name="password"]', yourPassword);
+
+  await page.waitForSelector('#passwordNext');
+  await page.click('#passwordNext');
+
+  // ENTRAR NA SALA E ESCOLHER A MATERIA
+  
 
   // await browser.close();
 
