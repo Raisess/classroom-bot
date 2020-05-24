@@ -48,5 +48,7 @@ const getExerciseText = async (page, callback) => {
   }
 }
 
-module.exports = getExerciseText;
-module.exports = textReplace;
+module.exports = {
+  getExerciseText: getExerciseText,
+  textReplace: textReplace
+};
