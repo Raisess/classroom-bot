@@ -12,7 +12,7 @@ const goToScholar = async (page, args, callback) => {
   console.log('');
   console.log('SELECAO PARA PESQUISA: ');
   // console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < (arr.length - 1); i++) {
     console.log(`indice: ${ i }`, '|', `texto: ${ arr[i] }`);
   }
 
@@ -34,6 +34,7 @@ const goToScholar = async (page, args, callback) => {
   await navigationPromise;
 
   console.log(text);
+  console.log('');
 
   if (callback) {
     return callback(text);

@@ -41,7 +41,9 @@ if (require('./credencials.json')) {
 // modulos do bot
 const login = require('./modules/login');
 const selectExercise = require('./modules/selectExercise');
-const getExerciseText = require('./modules/getExerciseText');
+const {
+  getExerciseText
+} = require('./modules/getExerciseText');
 const goToScholar = require('./modules/goToScholar');
 
 // modulos de resolução de exercicios

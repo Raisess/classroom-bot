@@ -11,6 +11,8 @@ const textReplace = text => text.split(' ').join('+');
 const getExerciseText = async (page, callback) => {
   const navigationPromise = page.waitForNavigation();
 
+  console.log('');
+
   // escolher o exercicio
   if (!exercise_url || exercise_url === null || exercise_url === undefined) {
     // exercicio não definido
@@ -47,3 +49,4 @@ const getExerciseText = async (page, callback) => {
 }
 
 module.exports = getExerciseText;
+module.exports = textReplace;
