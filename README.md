@@ -6,7 +6,7 @@ Um bot feito para resolver exercicios e comentar a resolução no classroom de f
 
 ## REQUISITOS
 
-<li>NodeJS LTS version<li>
+<li>NodeJS LTS version</li>
 
 ## INSTALANDO AS DEPENDENCIAS
 
