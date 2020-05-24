@@ -1,6 +1,24 @@
 # CLASSROOM-BOT
 
+**BOT CRIADO TOTALMENTE PARA FINS DE ESTUDO DE AUTOMATIZAÇÃO DE SOFTWARE E PESQUISAS, faça sua tarefinha**
+
 Um bot feito para resolver exercicios e comentar a resolução no classroom de forma automática.
+
+## REQUISITOS
+
+<li>NodeJS LTS version<li>
+
+## INSTALANDO AS DEPENDENCIAS
+
+*Isso só é necessário na primeira execução do programa.*
+
+Após instalar o NodeJS e ter baixado o bot, extraia os arquivos e clique duas vezes sobre o a arquivo **install.bat**
+
+ou use o comando no terminal na pasta do bot.
+
+```shell
+npm install
+```
 
 ## CONFIGURANDO O BOT
 
@@ -33,6 +51,18 @@ Os dados da sala ficam no **config.json**.
 ```
 
 Cuidado com os dados que vc vai colocar no **config.json** eles são ultilizados de forma direta no código.
+
+## EXECUTANDO O BOT
+
+Após ter instalado todas as dependencias e ter feito toda configuração corretamente, clique duas vezes sobre o a arquivo **run.bat**
+
+ou use o comando no terminal na pasta do bot.
+
+```shell
+npm start
+```
+
+e veja acontecer
 
 ## EXEMPLO DE EXECUÇÃO
 
