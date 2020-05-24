@@ -41,9 +41,10 @@ if (require('./credencials.json')) {
 const login = require('./modules/login');
 const selectExercise = require('./modules/selectExercise');
 const getExerciseText = require('./modules/getExerciseText');
+const goToBrainly = require('./modules/goToBrainly');
 
 // modulos de resolução de exercicios
-const googleSearchFetch = require('./services/googleSearchFetch');
+// const googleSearchFetch = require('./services/googleSearchFetch');
 
 (async () => {
   // criar a instancia do navegador
@@ -62,7 +63,7 @@ const googleSearchFetch = require('./services/googleSearchFetch');
   // selecionar exercicio
   await selectExercise(page, room_url);
   await getExerciseText(page, async searchText => {
-    await googleSearchFetch(searchText);
+    await goToBrainly(page, searchText);
   });
 
   // await browser.close();
