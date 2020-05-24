@@ -32,6 +32,8 @@ const login = async (page, classroom_url, yourEmail, yourPassword) => {
 
   await page.waitForSelector('#passwordNext');
   await page.click('#passwordNext');
+
+  console.log('login realizado com sucesso!');
 }
 
 module.exports = login;

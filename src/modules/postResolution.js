@@ -2,16 +2,11 @@ const {
   question
 } = require('readline-sync');
 
-const {
-  exercise_url
-} = require('../config.json');
-
-const postResolution = async (browser, page, text, callback) => {
+const postResolution = async (browser, page, exercise_url, text, callback) => {
   const navigationPromise = page.waitForNavigation();
 
   const arr = text.split('.');
 
-  console.log('');
   console.log('SELECAO PARA RESPOSTA: ');
   console.log('');
   // console.log(arr);

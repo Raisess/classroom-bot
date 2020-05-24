@@ -5,6 +5,9 @@ const selectExercise = async (page, room_url) => {
   await page.goto(room_url);
 
   await navigationPromise;
+
+  console.log('');
+  console.log('entrando na sala...');
 }
 
 module.exports = selectExercise;

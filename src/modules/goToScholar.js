@@ -36,6 +36,8 @@ const goToScholar = async (page, args, callback) => {
 
   // console.log(text);
   console.log('');
+  console.log('fazendo pesquisa...');
+  console.log('');
 
   if (callback) {
     return callback(text);

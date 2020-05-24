@@ -12,7 +12,7 @@ const {
 
 console.log('comecei!');
 
-let yourEmail, yourPassword;
+let yourEmail, yourPassword, yourExercise;
 
 // importando o arquivo de credenciais
 if (require('./credencials.json')) {
@@ -36,6 +36,14 @@ if (require('./credencials.json')) {
   yourPassword = question('informe sua senha: ', {
     hideEchoBack: true
   });
+}
+
+// checando se existe um exercicio predefinido
+if (!exercise_url || exercise_url === null || exercise_url === undefined) {
+  console.log('');
+  yourExercise = question('link do exercicio para ser resolvido: ');
+} else {
+  yourExercise = exercise_url;
 }
 
 // modulos do bot
@@ -66,9 +74,9 @@ const postResolution = require('./modules/postResolution');
   await login(page, classroom_url, yourEmail, yourPassword);
   // selecionar exercicio
   await selectExercise(page, room_url);
-  await getExerciseText(page, async searchText => {
+  await getExerciseText(page, yourExercise, async searchText => {
     await goToScholar(page, searchText, async text => {
-      await postResolution(browser, page, text, async () => await browser.close());
+      await postResolution(browser, page, yourExercise, text, async () => await browser.close());
     });
   });
 

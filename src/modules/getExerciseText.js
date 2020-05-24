@@ -1,30 +1,18 @@
 const {
   question
 } = require('readline-sync');
-const {
-  exercise_url
-} = require('../config.json');
 
 // trocar os espaços por cocatenação em query string
 const textReplace = text => text.split(' ').join('+');
 
-const getExerciseText = async (page, callback) => {
+const getExerciseText = async (page, exercise_url, callback) => {
   const navigationPromise = page.waitForNavigation();
 
   console.log('');
+  console.log('o exercicio predefinido foi:', exercise_url);
 
-  // escolher o exercicio
-  if (!exercise_url || exercise_url === null || exercise_url === undefined) {
-    // exercicio não definido
-    const exerciseLink = question('link do exercicio: ');
-    await page.goto(exerciseLink);
-  } else {
-    // exercicio prédefinido
-    const exerciseLink = exercise_url;
-    await page.goto(exerciseLink);
-
-    console.log('o exercicio predefinido foi:', exercise_url);
-  }
+  // ir para pagina do exercicio
+  await page.goto(exercise_url);
 
   await navigationPromise;
 
