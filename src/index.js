@@ -42,6 +42,9 @@ const login = require('./modules/login');
 const selectExercise = require('./modules/selectExercise');
 const getExerciseText = require('./modules/getExerciseText');
 
+// modulos de resolução de exercicios
+const googleSearchFetch = require('./services/googleSearchFetch');
+
 (async () => {
   // criar a instancia do navegador
   const browser = await puppeteer.launch({
@@ -58,7 +61,9 @@ const getExerciseText = require('./modules/getExerciseText');
   await login(page, classroom_url, yourEmail, yourPassword);
   // selecionar exercicio
   await selectExercise(page, room_url);
-  await getExerciseText(page);
+  await getExerciseText(page, async searchText => {
+    await googleSearchFetch(searchText);
+  });
 
   // await browser.close();
 
