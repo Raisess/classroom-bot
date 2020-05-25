@@ -1,12 +1,12 @@
 # CLASSROOM-BOT
 
-**BOT CRIADO TOTALMENTE PARA FINS DE ESTUDO DE AUTOMATIZAÇÃO DE SOFTWARE E PESQUISAS, faça sua tarefinha**
+**BOT CRIADO TOTALMENTE PARA FINS DE ESTUDO DE AUTOMATIZAÇÃO DE SOFTWARE E PESQUISAS, faça sua tarefinha.**
 
 Um bot feito para resolver exercicios e comentar a resolução no classroom de forma automática.
 
 ## REQUISITOS
 
-<li>NodeJS LTS version</li>
+<li>[NodeJS LTS](https://nodejs.org/en/download/) version</li>
 
 ## INSTALANDO AS DEPENDENCIAS
 
