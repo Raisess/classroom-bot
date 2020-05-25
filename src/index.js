@@ -11,8 +11,6 @@ const {
   exercise_url
 } = require('./config.json');
 
-console.log('comecei!');
-
 let yourEmail, yourPassword, yourExercise;
 
 // importando o arquivo de credenciais
@@ -69,6 +67,8 @@ const postResolution = require('./modules/postResolution');
 
   // ir para página do classroom
   const page = await browser.newPage();
+
+  console.log('comecei!');
 
   // AÇÕES DO BOT
   // login
