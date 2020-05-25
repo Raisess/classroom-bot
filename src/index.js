@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const {
   question
 } = require('readline-sync');
+const showTitle = require('./showTitle')();
 
 // importando o arquivo de configuração
 const {
