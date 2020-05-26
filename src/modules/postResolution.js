@@ -18,7 +18,7 @@ const postResolution = async (browser, page, exercise_url, text, bool, callback)
     }
 
     // escolher o item para resposta
-    const index = parseInt(question('escolha o indice para resposta: '));
+    const index = parseInt(question('> escolha o indice para resposta: '));
 
     // voltar para pagina do exercicio
     await page.goto(exercise_url);
@@ -49,10 +49,9 @@ const postResolution = async (browser, page, exercise_url, text, bool, callback)
     await page.keyboard.type(text);
   }
 
-  console.log('');
   console.log('vc pode editar a resposta diretamente no navegador.');
 
-  const send = parseInt(question('[1] para enviar / [0] para cancelar: '));
+  const send = parseInt(question('> [1] para enviar / [0] para cancelar: '));
 
   await navigationPromise;
 

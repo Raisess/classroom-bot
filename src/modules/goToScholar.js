@@ -18,7 +18,7 @@ const goToScholar = async (page, args, callback) => {
 
   console.log('');
   // escolher o item para pesquisar
-  const index = parseInt(question('escolha o indice para pesquisar: '));
+  const index = parseInt(question('> escolha o indice para pesquisar: '));
   console.log('');
 
   // fazer a pesquisa
@@ -37,6 +37,9 @@ const goToScholar = async (page, args, callback) => {
 
     await navigationPromise;
   } catch (e) {
+    console.log('desculpe a demora, sua resposta estava em um lugar muito escuro...');
+    console.log('');
+
     await page.waitForSelector('span[class="st"]');
 
     const element = await page.$('span[class="st"]');

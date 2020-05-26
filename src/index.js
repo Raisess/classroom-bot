@@ -31,8 +31,8 @@ if (require('./credencials.json')) {
   yourEmail = email;
   yourPassword = password;
 } else {
-  yourEmail = question('informe o seu email: ');
-  yourPassword = question('informe sua senha: ', {
+  yourEmail = question('> informe o seu email: ');
+  yourPassword = question('> informe sua senha: ', {
     hideEchoBack: true
   });
 }
@@ -40,7 +40,7 @@ if (require('./credencials.json')) {
 // checando se existe um exercicio predefinido
 if (!exercise_url || exercise_url === null || exercise_url === undefined) {
   console.log('');
-  yourExercise = question('link do exercicio para ser resolvido: ');
+  yourExercise = question('> link do exercicio para ser resolvido: ');
 } else {
   yourExercise = exercise_url;
 }
