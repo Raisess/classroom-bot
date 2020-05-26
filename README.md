@@ -43,7 +43,6 @@ Os dados da sala ficam no **config.json**.
 
 ```json
 {
-  // não altere o valor do classroom_url
   "classroom_url": "https://accounts.google.com/signin/v2/identifier?service=classroom&passive=1209600&continue=https%3A%2F%2Fclassroom.google.com%2F%3Femr%3D0&followup=https%3A%2F%2Fclassroom.google.com%2F%3Femr%3D0&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
   "room_url": "<link da sala | EX: https://classroom.google.com/c/NzM4Mzg4ODkxNjVa>",
   "exercise_url": "<link do exercicio para ser resolvido | EX: https://classroom.google.com/u/2/c/NzM4Mzg4ODkxNjVa/a/MTMyNDI3Mzg2NDgz/details>"

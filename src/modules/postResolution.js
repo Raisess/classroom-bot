@@ -10,6 +10,7 @@ const postResolution = async (browser, page, exercise_url, text, bool, callback)
 
     console.log('SELECAO PARA RESPOSTA: ');
     console.log('');
+
     // console.log(arr);
     for (let i = 0; i < (arr.length - 1); i++) {
       console.log(`[${ i }]: ${ arr[i] }`);
