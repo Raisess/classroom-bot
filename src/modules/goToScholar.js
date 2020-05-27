@@ -7,13 +7,21 @@ const goToScholar = async (page, args, callback) => {
 
   const str = args.split('+').join(' ');
   const otherStr = str.split('\n').join('');
-  const arr = otherStr.split('.');
+
+  let arr = otherStr.split('.');
+  arr.push(otherStr);
+
+  // console.log(arr);
 
   console.log('');
   console.log('SELECAO PARA PESQUISA: ');
   // console.log(arr);
-  for (let i = 0; i < (arr.length - 1); i++) {
-    console.log(`[${ i }]: ${ arr[i] }`);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '') {
+      continue;
+    } else {
+      console.log(`[${ i }]: ${ arr[i] }`);
+    }
   }
 
   console.log('');
